@@ -9,7 +9,7 @@ Example:
 
 ```
   # Creates an instance of the Twitch Exporter then runs main()
-  # Be sure to keep the "r" in front of the 'ExportPath' to ensure Python reads 
+  # Be sure to keep the "r" in front of the 'ExportPath' to ensure Python reads the path correctly 
   
   TwitchExporter = TwitchTrackerExport('StreamerID', r'ExportPath')
   df = TwitchExporter.main()

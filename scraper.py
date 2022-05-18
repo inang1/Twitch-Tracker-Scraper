@@ -52,12 +52,12 @@ class TwitchTrackerExport:
         self.currentPage += 1
 
     def scrapeData(self):
-        # For loop goes 20 times, corresponding to the number of streams per page
-        # It gets the xpath of each and appends them to the list
-
+        # Grab the number of streams on the page
         streamsXPATH = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr"
         numStreams = int(len(self.driver.find_elements(By.XPATH, streamsXPATH))) + 1
 
+        # Loops through each stream getting the XPATH for each item
+        # Then appends the data to the corresponding list
         for _ in range(1, numStreams):
             datetimexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+ str(_) + "]/td[1]/a/span"
             self.datetimes.append(self.driver.find_element(by = By.XPATH, value = datetimexpath).text)
@@ -115,12 +115,19 @@ class TwitchTrackerExport:
         return(df)
 
     def main(self):
+        # Scrapes the first page
         self.scrapeData()
+
+        # Loop to go through the rest of the pages and scrape
         for _ in range(self.numPages):
             self.nextPage()
             self.scrapeData()
+
+        # Ends the driver
         self.driver.close()
         self.driver.quit()
+
+        # Create the dataframe
         df = self.combineData()
         return(df)
 

@@ -1,106 +1,129 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from webdriver_manager.chrome import ChromeDriverManager
+
 import pandas as pd
 import datetime as dt
 
-def loadPage(StreamerID):
-        url = 'https://twitchtracker.com/' + str(StreamerID) + '/streams'
+class TwitchTrackerExport:
+
+    def __init__(self, StreamerID, ExportPath):
+        self.ExportPath = str(ExportPath)
+        self.StreamerID = StreamerID
+        self.datetimes = []
+        self.durations = []
+        self.avgCCV = []
+        self.maxCCV = []
+        self.followers = []
+        self.views = []
+        self.titles = []
+
+        # Load page
+        self.url = 'https://twitchtracker.com/' + str(StreamerID) + '/streams'
         options = Options()
         options.headless = False
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        driver.get(url)
-        return(driver)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver.maximize_window()
+        self.driver.get(self.url)
 
-def initLists():
-    datetimes = []
-    durations = []
-    avgCCV = []
-    maxCCV = []
-    followers = []
-    views = []
-    titles = []
-    return(datetimes, durations, avgCCV, maxCCV, followers, views, titles)
+        # Get number of pages to iterate through
+        links = self.driver.find_elements(By.XPATH, "//ul[@class='pagination']/li/a")
+        self.numPages = int(links[-1].text)-1
 
-def scrapeData(driver, datetimes, durations, avgCCV, maxCCV, followers, views, titles):
-    # For loop goes 20 times, corresponding to the number of streams per page
-    # It gets the xpath of each stream and appends them to the corresponding list
-    for _ in range(1, 21):
-        datetimexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+ str(_) + "]/td[1]/a/span"
-        datetimes.append(driver.find_element(by = By.XPATH, value = datetimexpath).text)
+        # Sets CurrentPage to 1
+        self.currentPage = 1
 
-        durationxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) +"]/td[2]/span"
-        durations.append(driver.find_element(by = By.XPATH, value = durationxpath).text)
+    def nextPage(self):
+        # Find all pagination links
+        next = str(self.currentPage + 1)
+        nextXPATH = "//ul[@class='pagination']/li/a[text() =" + next + "]"
 
-        avgCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[3]/span"
-        avgCCV.append(driver.find_element(by = By.XPATH, value = avgCCVxpath).text)
+        element = self.driver.find_element(By.XPATH, nextXPATH)
 
-        maxCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[4]/span"
-        maxCCV.append(driver.find_element(by = By.XPATH, value = maxCCVxpath).text)
+        # Scrolls to the bottom of the page so button is in view then clicks
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        element.click()
 
-        followersxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[5]/span"
-        followers.append(driver.find_element(by = By.XPATH, value = followersxpath).text)
+        self.currentPage += 1
 
-        viewsxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_)+ "]/td[6]/span"
-        views.append(driver.find_element(by = By.XPATH, value = viewsxpath).text)
+    def scrapeData(self):
+        # For loop goes 20 times, corresponding to the number of streams per page
+        # It gets the xpath of each and appends them to the list
 
-        titlexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+str(_)+"]/td[7]"
-        titles.append(driver.find_element(by = By.XPATH, value = titlexpath).text)
+        streamsXPATH = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr"
+        numStreams = int(len(self.driver.find_elements(By.XPATH, streamsXPATH))) + 1
 
-    return(datetimes, durations, avgCCV, maxCCV, followers, views, titles)
+        for _ in range(1, numStreams):
+            datetimexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+ str(_) + "]/td[1]/a/span"
+            self.datetimes.append(self.driver.find_element(by = By.XPATH, value = datetimexpath).text)
 
-def nextPage(driver, CurrentPage):
-    nextpageXPATH = "/html/body/div[2]/div[4]/div[5]/div[2]/div/ul/li[" + str(CurrentPage + 1) + "]/a"
-    link = driver.find_element(By.XPATH, value = nextpageXPATH)
-    href = link.get_attribute('href')
-    href.click()
+            durationxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) +"]/td[2]/span"
+            self.durations.append(self.driver.find_element(by = By.XPATH, value = durationxpath).text)
 
+            avgCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[3]/span"
+            self.avgCCV.append(self.driver.find_element(by = By.XPATH, value = avgCCVxpath).text)
 
-def combineData(datetimes, durations, avgCCV, maxCCV, followers, views, titles):
-    # Remove hrs text from durations
-    durations = [i.strip(' hrs') for i in durations]
+            maxCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[4]/span"
+            self.maxCCV.append(self.driver.find_element(by = By.XPATH, value = maxCCVxpath).text)
 
-    # Compile data and convert to dataframe
-    data = list(zip(datetimes, durations, avgCCV, maxCCV, followers, views, titles))
-    df = pd.DataFrame(data, columns = ['DateTime', 'Duration (hrs)', 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title'])
+            followersxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[5]/span"
+            self.followers.append(self.driver.find_element(by = By.XPATH, value = followersxpath).text)
 
-    # Convert DateTime column to datetime object and parse
-    df['DateTime'] = pd.to_datetime(df['DateTime'])
+            viewsxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_)+ "]/td[6]/span"
+            self.views.append(self.driver.find_element(by = By.XPATH, value = viewsxpath).text)
 
-    df['Date'] = df['DateTime'].dt.strftime('%m/%d/%Y')
-    df['Time'] = df['DateTime'].dt.strftime('%H:%M%:%S')
+            titlexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+str(_)+"]/td[7]"
+            self.titles.append(self.driver.find_element(by = By.XPATH, value = titlexpath).text)
 
-    # Convert Date and Time columns to dt objects
-    df['Date'] = pd.to_datetime(df['Date'])
-    df['Time'] = pd.to_datetime(df['Time'])
+    def combineData(self):
+        # Remove hrs text from durations
+        self.durations = [i.strip(' hrs') for i in self.durations]
 
-    # Remove dates from Time column
-    df['Time'] = df['Time'].dt.time
+        # Compile data and convert to dataframe
+        data = list(zip(self.datetimes, self.durations, self.avgCCV, self.maxCCV, self.followers, self.views, self.titles))
+        df = pd.DataFrame(data, columns = ['DateTime', 'Duration (hrs)', 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title'])
 
-    # Add Day of Week column
-    df['Day'] = df['Date'].dt.strftime('%A')
+        # Convert DateTime column to datetime object and parse
+        df['DateTime'] = pd.to_datetime(df['DateTime'])
+        df['Date'] = df['DateTime'].dt.strftime('%m/%d/%Y')
+        df['Time'] = df['DateTime'].dt.strftime('%H:%M:%S')
 
-    # Drop original DateTime column from the dataframe
-    df = df.drop('DateTime', axis = 1)
+        # Convert Date and Time columns to dt objects
+        df['Date'] = pd.to_datetime(df['Date'])
+        df['Time'] = pd.to_datetime(df['Time'])
+        df['Time'] = df['Time'].dt.time
 
-    # Fill in blanks with 0s
-    df.replace("", 0)
+        # Add Day of Week column
+        df['Day'] = df['Date'].dt.strftime('%A')
 
-    # Reorder DataFrame
-    df = df[['Date', 'Time', 'Duration (hrs)', 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title']]
+        # Drop original DateTime column from the dataframe
+        df = df.drop('DateTime', axis = 1)
 
-    # Export df to csv
-    df.to_csv(r"C:\Users\Isabella\Documents\Projects\Twitch Tracker Scraper\TwitchTrackerExport.csv")
-    return(df)
+        # Fill in blanks with 0s
+        df.replace("", 0)
 
-def main(StreamerID, numPages):
-    driver = loadPage(StreamerID)
-    datetimes, durations, avgCCV, maxCCV, followers, views, titles = initLists()
-    datetimes, durations, avgCCV, maxCCV, followers, views, titles = scrapeData(driver, datetimes, durations, avgCCV, maxCCV, followers, views, titles)
-    df = combineData(datetimes, durations, avgCCV, maxCCV, followers, views, titles)
-    return df
+        # Reorder columns
+        df = df[['Date', 'Time', 'Day', "Duration (hrs)", 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title']]
 
-df = main('iankung', 9)
+        # Export df to csv
+        df.to_csv(self.ExportPath)
+        return(df)
+
+    def main(self):
+        self.scrapeData()
+        for _ in range(self.numPages):
+            self.nextPage()
+            self.scrapeData()
+        self.driver.close()
+        self.driver.quit()
+        df = self.combineData()
+        return(df)
+
+TwitchExporter = TwitchTrackerExport('iankung', r"C:\Users\Isabella\Documents\Projects\Twitch Tracker Scraper\TwitchTrackerExport.csv")
+df = TwitchExporter.main()
 print(df)

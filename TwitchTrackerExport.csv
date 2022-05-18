@@ -1,21 +1,179 @@
-,Date,Time,Duration (hrs),avgCCV,maxCCV,Followers,Views,Title
-0,2022-05-13,23:27:00,6.0,71,90,1,0,FRIDAY NIGHT CHATTING MAYBE SCARY GAME TOO?
-1,2022-05-12,20:33:00,2.9,122,380,95,0,GET IN HERE HURRY
-2,2022-05-10,14:37:00,1.8,65,83,2,0,HELP ME MAKE YOUTUBE VIDEO
-3,2022-05-06,20:22:00,1.5,75,90,-2,0,CAUTION: CONSTRUCTION ZONE (BUFF MEN ONLY)
-4,2022-05-04,21:05:00,2.0,98,117,5,0,doin MAN SH1T today
-5,2022-05-01,23:30:00,2.4,109,133,6,0,SPOOKY GAME NIGHT (PART 2)
-6,2022-05-01,00:36:00,3.6,197,509,21,0,SPOOKY GAME NIGHT
-7,2022-04-30,00:58:00,2.4,285,496,27,0,Late night shinanigans
-8,2022-04-25,23:07:00,6.8,173,433,66,0,Afterhours w your favorite daily streamer
-9,2022-04-19,20:23:00,2.9,52,75,64,0,washing my eyeballs
-10,2022-04-18,21:15:00,1.8,73,86,-9,0,HELP ME DO MY HOMEWORK
-11,2022-04-01,01:16:00,1.8,56,62,-2,84,AFTER HOURS STREAM
-12,2022-03-26,23:54:00,2.2,73,90,-3,104,IAN CHECKIN IN
-13,2022-03-08,11:51:00,2.0,107,131,82,419,Get in here! Uploading
-14,2022-03-08,01:04:00,2.3,171,314,19,370,back from getting milk
-15,2022-02-01,02:10:00,2.7,120,224,26,284,completely legit stream (sponsored by voodoo ranger)
-16,2022-01-24,03:24:00,1.2,49,69,4,63,avoiding IRS audit tonight
-17,2022-01-21,19:13:00,5.5,70,83,3,309,"BIRTHDAY TODAY, IM OLD"
-18,2022-01-19,21:05:00,2.1,73,89,-2,145,GET IN NOW ITS SO CHILL
-19,2022-01-18,23:39:00,1.8,63,82,1,154,ACTUAL chill night stream
+,Date,Time,Day,Duration (hrs),avgCCV,maxCCV,Followers,Views,Title
+0,2022-05-13,23:27:00,Friday,6.0,71,90,1,0,FRIDAY NIGHT CHATTING MAYBE SCARY GAME TOO?
+1,2022-05-12,20:33:00,Thursday,2.9,122,380,95,0,GET IN HERE HURRY
+2,2022-05-10,14:37:00,Tuesday,1.8,65,83,2,0,HELP ME MAKE YOUTUBE VIDEO
+3,2022-05-06,20:22:00,Friday,1.5,75,90,-2,0,CAUTION: CONSTRUCTION ZONE (BUFF MEN ONLY)
+4,2022-05-04,21:05:00,Wednesday,2.0,98,117,5,0,doin MAN SH1T today
+5,2022-05-01,23:30:00,Sunday,2.4,109,133,6,0,SPOOKY GAME NIGHT (PART 2)
+6,2022-05-01,00:36:00,Sunday,3.6,197,509,21,0,SPOOKY GAME NIGHT
+7,2022-04-30,00:58:00,Saturday,2.4,285,496,27,0,Late night shinanigans
+8,2022-04-25,23:07:00,Monday,6.8,173,433,66,0,Afterhours w your favorite daily streamer
+9,2022-04-19,20:23:00,Tuesday,2.9,52,75,64,0,washing my eyeballs
+10,2022-04-18,21:15:00,Monday,1.8,73,86,-9,0,HELP ME DO MY HOMEWORK
+11,2022-04-01,01:16:00,Friday,1.8,56,62,-2,84,AFTER HOURS STREAM
+12,2022-03-26,23:54:00,Saturday,2.2,73,90,-3,104,IAN CHECKIN IN
+13,2022-03-08,11:51:00,Tuesday,2.0,107,131,82,419,Get in here! Uploading
+14,2022-03-08,01:04:00,Tuesday,2.3,171,314,19,370,back from getting milk
+15,2022-02-01,02:10:00,Tuesday,2.7,120,224,26,284,completely legit stream (sponsored by voodoo ranger)
+16,2022-01-24,03:24:00,Monday,1.2,49,69,4,63,avoiding IRS audit tonight
+17,2022-01-21,19:13:00,Friday,5.5,70,83,3,309,"BIRTHDAY TODAY, IM OLD"
+18,2022-01-19,21:05:00,Wednesday,2.1,73,89,-2,145,GET IN NOW ITS SO CHILL
+19,2022-01-18,23:39:00,Tuesday,1.8,63,82,1,154,ACTUAL chill night stream
+20,2022-01-16,22:14:00,Sunday,2.8,85,111,0,202,chill night hangout
+21,2022-01-13,20:07:00,Thursday,3.0,64,74,-5,154,IM A DOCTOR NOW
+22,2022-01-05,19:51:00,Wednesday,7.2,80,150,9,437,Horror Game Night (i fixed it)
+23,2022-01-04,22:07:00,Tuesday,1.3,63,86,-1,81,Horror Game Night
+24,2022-01-04,01:10:00,Tuesday,2.7,65,85,4,128,late night testing
+25,2022-01-02,04:23:00,Sunday,2.0,52,69,0,123,late night bing chilling
+26,2022-01-01,00:06:00,Saturday,3.1,52,77,1,206,BUILDING STUFF + NYE COUNTDOWN (sponsored by voodoo ranger)
+27,2021-12-25,19:03:00,Saturday,4.3,60,68,-8,250,Merry Xmas!
+28,2021-12-24,23:34:00,Friday,3.7,85,102,3,235,Xmas Countdown
+29,2021-12-02,01:49:00,Thursday,4.3,85,108,15,294,chill late night stream
+30,2021-11-30,19:33:00,Tuesday,1.5,74,91,2,118,COME GET SOME HOLIDAY CHEER (sponsored by voodoo ranger)
+31,2021-11-25,18:08:00,Thursday,4.6,103,134,22,396,Idiot Spends Thxgiving Alone (sponsored by voodoo ranger)
+32,2021-11-19,12:27:00,Friday,4.3,100,141,201,623,lmao we did it bois
+33,2021-11-17,00:30:00,Wednesday,2.3,93,115,14,207,AFTERHOURS-ADULTS ONLY-GET IN
+34,2021-11-10,20:28:00,Wednesday,5.3,87,125,13,409,BUILDING THINGS TONIGHT
+35,2021-11-08,13:47:00,Monday,4.5,162,220,169,956,"Travis Scott, more like Travis dumb guy"
+36,2021-11-01,21:42:00,Monday,2.0,93,109,-1,202,"Native Americans, lets talk about them"
+37,2021-10-30,22:58:00,Saturday,2.1,101,126,3,151,"Talk to me, just chillin tonight (sponsored by voodoo ranger)"
+38,2021-10-27,21:28:00,Wednesday,5.3,98,163,19,540,Chat Being Toxic While I Build New Furniture
+39,2021-10-26,23:01:00,Tuesday,3.0,117,142,7,320,1st Cooking Stream (sponsored by voodoo ranger)
+40,2021-10-14,21:53:00,Thursday,2.5,102,118,5,201,I become a MAN today
+41,2021-10-09,21:53:00,Saturday,3.2,100,124,22,303,Huge Win Today For The New Home
+42,2021-10-06,19:05:00,Wednesday,4.0,104,142,18,385,New Apartment Housewarming Stream!
+43,2021-09-29,17:55:00,Wednesday,4.2,113,169,32,475,My Last Stream From Home!
+44,2021-09-23,00:00:00,Thursday,4.2,117,152,25,417,I'M MOVING BOIS (sponsored by voodoo ranger)
+45,2021-09-19,04:08:00,Sunday,1.1,44,62,8,69,Pokemon Pack vs. Pack w/ Gus Johnson
+46,2021-09-18,00:28:00,Saturday,2.9,122,141,56,474,Pokemon Pack vs. Pack w/ Gus Johnson
+47,2021-09-16,22:56:00,Thursday,3.3,130,153,34,394,classic nighttime chill stream
+48,2021-09-15,19:58:00,Wednesday,3.6,79,175,38,422,My First GTA5 Playthrough
+49,2021-09-12,22:08:00,Sunday,0.1,0,0,0,0,"GTA 5, my first playthrough"
+50,2021-09-12,01:51:00,Sunday,7.0,276,685,132,"1,301",Nightstream - First time playing GTA 5 (day 3)
+51,2021-09-11,05:00:00,Saturday,2.2,326,521,88,583,Super Late Night - First time playing GTA 5 (day 2)
+52,2021-09-10,02:38:00,Friday,5.1,278,599,120,"1,182",Late Night - First time playing GTA 5
+53,2021-09-09,22:19:00,Thursday,1.4,72,90,12,144,chill night stream
+54,2021-09-04,18:12:00,Saturday,2.5,191,540,97,733,What's happening in Texas
+55,2021-09-02,22:51:00,Thursday,3.0,56,88,31,403,Raft - Day 1 w/ ALL THE BOYS
+56,2021-08-31,23:01:00,Tuesday,1.4,131,161,27,164,the gang does mukbang (sponsored by voodoo ranger)
+57,2021-08-30,03:34:00,Monday,4.0,55,70,13,210,late night chillin
+58,2021-08-29,17:44:00,Sunday,3.3,71,99,10,251,Chat plays Who Wants To Be A Millionaire
+59,2021-08-27,22:07:00,Friday,3.1,76,95,7,206,Wtf are NFT's?
+60,2021-08-27,01:45:00,Friday,3.8,63,84,11,265,"chill night-shift gaming, get in"
+61,2021-08-26,01:39:00,Thursday,3.3,231,403,40,662,chill night shift stream get in
+62,2021-08-25,16:03:00,Wednesday,2.9,79,134,31,342,new stream setup
+63,2021-08-23,20:33:00,Monday,8.5,61,161,69,958,"goin on a roadtrip, hop in"
+64,2021-08-23,02:29:00,Monday,4.3,125,246,101,615,the nightshift stream
+65,2021-08-22,01:57:00,Sunday,4.5,52,70,83,515,"late night, new game, voidtrain"
+66,2021-08-20,20:12:00,Friday,2.4,64,82,11,247,this stream is growing up! (sponsored by voodoo ranger)
+67,2021-08-19,02:34:00,Thursday,3.2,256,489,42,544,late night update stream
+68,2021-08-18,19:31:00,Wednesday,2.0,70,83,-3,132,trying new business idea
+69,2021-08-04,11:59:00,Wednesday,2.8,165,194,149,710,im back from getting milk
+70,2021-07-01,00:09:00,Thursday,3.3,82,148,11,278,afterhours stream (sponsored by voodoo ranger)
+71,2021-06-18,17:12:00,Friday,3.2,86,111,11,218,Finding fascinating youtube videos (sponsored by voodoo ranger)
+72,2021-06-14,17:36:00,Monday,5.5,42,53,85,752,Warzone w/ Gus
+73,2021-06-10,12:09:00,Thursday,1.9,147,201,109,546,TWITCH PARTNERSHIP CELEBRATION
+74,2021-06-02,20:59:00,Wednesday,3.3,67,97,4,247,conquering my fear of horror games (attempt 2)
+75,2021-05-31,21:45:00,Monday,1.3,95,110,4,180,conquering my fear of horror games
+76,2021-05-29,19:59:00,Saturday,1.3,86,110,8,192,i found a weeb dating simulator
+77,2021-05-28,22:06:00,Friday,3.1,92,129,18,400,come judge viewers' meme recommendations (day 2) sponsored by voodoo ranger
+78,2021-05-26,22:13:00,Wednesday,3.0,131,207,24,520,chat judges YOUR meme recommendations
+79,2021-05-26,00:04:00,Wednesday,2.3,181,290,63,511,going on a Cringe Safari
+80,2021-05-21,23:41:00,Friday,2.0,111,136,16,280,chat plays Who wants to be a millionaire
+81,2021-05-19,17:07:00,Wednesday,1.3,85,110,11,181,Taking Official Scientology Assessment Test
+82,2021-05-19,01:32:00,Wednesday,0.5,62,73,2,0,late night shotgun farmers w friends
+83,2021-05-14,22:18:00,Friday,1.6,88,99,-1,230,come wish her a happy birthday!
+84,2021-05-13,01:31:00,Thursday,1.1,82,94,9,175,1 hour filler episode to make partner
+85,2021-05-10,23:53:00,Monday,1.9,126,159,43,417,Watching Memes + Mediashare
+86,2021-05-08,19:39:00,Saturday,2.1,113,127,39,426,BEER + PERSONALITY TESTS (sponsored by Voodoo Ranger)
+87,2021-05-06,21:22:00,Thursday,1.5,135,187,48,388,finding purest cringe
+88,2021-05-05,12:18:00,Wednesday,1.8,151,182,127,524,"risky upload, let's do it together"
+89,2021-05-03,12:25:00,Monday,3.1,458,691,"1,287","3,977","uploading, get on the school bus"
+90,2021-04-28,18:38:00,Wednesday,1.1,100,127,30,227,me 24 hours after #2 Moderna
+91,2021-04-28,00:32:00,Wednesday,1.4,107,133,37,332,400K subscriber chill celebration
+92,2021-04-26,23:12:00,Monday,1.5,387,"1,439",65,"1,652",taking human intelligence tests
+93,2021-04-22,16:33:00,Thursday,0.8,143,176,33,206,becoming twitch's most viewed fitness streamer
+94,2021-04-17,00:12:00,Saturday,1.9,238,444,92,663,chat plays who wants to be a millionaire
+95,2021-04-15,12:17:00,Thursday,5.0,294,414,976,"3,235","uploading, get on the school bus"
+96,2021-04-12,22:14:00,Monday,3.0,484,"1,080",235,"1,474",finding powerful cringe mediashare (test 74)
+97,2021-04-08,21:38:00,Thursday,2.8,116,144,71,427,taking a real iQ Test (test 73)
+98,2021-04-07,12:09:00,Wednesday,3.3,166,215,305,"1,172","pulled an all nighter, here we go again (test 72)"
+99,2021-04-04,21:49:00,Sunday,2.9,126,187,48,460,finding purest cringe (test 71)
+100,2021-04-02,18:04:00,Friday,2.0,80,103,"2,572",317,speedrun hair cut stream (test 70)
+101,2021-03-31,11:41:00,Wednesday,5.0,108,199,324,"1,722",uploading today (test 69)
+102,2021-03-20,13:11:00,Saturday,4.2,176,221,403,"1,179",get in here (test 68.4)
+103,2021-03-18,02:30:00,Thursday,1.9,47,55,17,112,late night Bioshock 1st playthru (test 68.3)
+104,2021-03-17,13:04:00,Wednesday,3.5,149,218,344,"1,252",running on 2 hours of sleep (test 68.2)
+105,2021-03-15,23:25:00,Monday,3.6,106,179,35,523,1st Bioshock play-through (test 68.1)
+106,2021-03-14,22:15:00,Sunday,4.7,106,202,92,688,1st Bioshock play-through sponsored by Voodoo (test 68)
+107,2021-03-13,20:12:00,Saturday,1.2,73,105,18,157,breaking the record (test 67)
+108,2021-03-12,18:39:00,Friday,3.4,71,117,97,493,slumber party w Gus (test 66)
+109,2021-03-10,17:52:00,Wednesday,2.0,90,136,27,209,im a vlogger now (test 65)
+110,2021-03-07,23:55:00,Sunday,3.3,68,92,29,314,afterhours chillin (test 64)
+111,2021-03-04,18:31:00,Thursday,2.7,98,253,27,498,im becoming more powerful (test 63)
+112,2021-03-02,20:18:00,Tuesday,2.1,57,78,10,225,DADDYS BACK FROM GETTIN CIGARETTES (test 61)
+113,2021-02-28,20:55:00,Sunday,3.0,74,97,-2,363,DADDYS BACK FROM GETTIN CIGARETTES (test 61)
+114,2021-01-21,12:10:00,Thursday,10.4,184,465,740,"3,306",30th Birthday Stream! (test 60)
+115,2021-01-18,23:01:00,Monday,2.4,40,46,7,181,Test 59 - chillin afterhours
+116,2021-01-08,19:36:00,Friday,4.3,69,90,10,375,Test 58 - chat plays millionaire
+117,2021-01-07,06:09:00,Thursday,1.1,27,33,3,41,Test 57.1 - im gonna beat this game
+118,2021-01-06,20:07:00,Wednesday,7.0,34,45,25,411,Test 57 - surviving on raft (day 1)
+119,2021-01-05,21:03:00,Tuesday,5.7,50,71,17,324,Test 56 - Skyrim first time playthrough
+120,2021-01-04,21:42:00,Monday,9.4,53,69,39,428,Test 55 - Skyrim first time playthrough
+121,2021-01-04,03:36:00,Monday,8.6,42,64,49,390,Test 54.1 - Skyrim first time playthrough
+122,2021-01-03,19:22:00,Sunday,6.4,94,286,64,801,Test 54 - Skyrim first time playthrough
+123,2021-01-02,18:40:00,Saturday,8.6,87,213,76,923,Test 53 - Skyrim first time playthrough
+124,2021-01-01,19:55:00,Friday,6.3,74,97,91,541,Test 52 - Skyrim first time playthrough (day 1)
+125,2020-12-31,21:15:00,Thursday,6.0,52,79,45,450,Test 51 - getting over 2020
+126,2020-12-29,19:39:00,Tuesday,3.9,83,373,61,595,Test 50 - gaming w the bois
+127,2020-12-24,20:31:00,Thursday,2.0,36,47,10,113,Test 49 - sending viewers xmas cards
+128,2020-12-17,21:44:00,Thursday,1.2,40,49,7,69,Test 48 - after hours vibin
+129,2020-12-14,21:58:00,Monday,3.4,66,92,35,369,Test 47 - chat plays millionaire
+130,2020-12-10,15:51:00,Thursday,3.5,191,"1,218",108,"1,182",Test 46 - upload day!
+131,2020-12-04,20:11:00,Friday,4.2,34,53,22,255,Test 45 - vibin w gus and bois night
+132,2020-12-03,19:52:00,Thursday,6.0,86,556,105,940,Test 44 - vibin w gus and bois night
+133,2020-12-02,15:48:00,Wednesday,0.8,52,58,21,112,Test 43 - babysitting gus & sabrina's doge
+134,2020-12-01,15:17:00,Tuesday,2.1,60,77,86,312,Test 42 - reading live youtube comments
+135,2020-11-20,23:14:00,Friday,3.7,80,125,7,269,Test 41 - chat winning a million dollars
+136,2020-11-18,23:13:00,Wednesday,4.0,98,153,23,576,Test 40 - chat winning a million dollars
+137,2020-11-17,21:10:00,Tuesday,2.3,33,46,7,111,Test 39 - meme competition
+138,2020-11-15,22:14:00,Sunday,2.8,69,87,4,274,Test 38 - chat tries to win a million dollars
+139,2020-11-14,01:23:00,Saturday,3.2,36,49,7,86,Test 37 - afterhours chillin
+140,2020-11-12,21:21:00,Thursday,1.7,22,29,-2,61,Test 36 - trying VR
+141,2020-11-12,17:19:00,Thursday,2.6,30,38,7,92,Test 36 - streaming on the road
+142,2020-11-05,22:54:00,Thursday,2.3,35,45,4,92,Test 35 - packing for LA (afterhours stream)
+143,2020-11-03,18:15:00,Tuesday,1.6,38,58,2,62,Test 34 - PO UnBoxing + channel updates
+144,2020-10-29,17:30:00,Thursday,3.8,39,66,13,183,Test 33 - among us w/ Sabrina and youtube people
+145,2020-10-27,22:59:00,Tuesday,7.1,49,94,37,371,Test 32 - ghost hunt w/ Sabrina! (late night stream)
+146,2020-10-25,17:32:00,Sunday,2.5,56,74,11,118,Test 31 - giving myself haircut attempt
+147,2020-10-21,20:26:00,Wednesday,3.1,53,67,6,199,Test 30 - playing doki doki w AOC
+148,2020-10-19,20:16:00,Monday,4.8,51,63,8,238,Test 29 - answering youtube fan mail
+149,2020-10-13,21:29:00,Tuesday,2.9,45,56,4,109,Test 28 - afterhours hangout
+150,2020-10-09,19:02:00,Friday,4.5,48,82,14,222,Test 27 - the new DOKI DOKI today
+151,2020-10-06,20:04:00,Tuesday,2.7,38,45,0,113,Test 26 - beating up ghosts w butch
+152,2020-10-04,18:43:00,Sunday,5.5,56,83,5,331,Test 25 - pooping pants
+153,2020-10-02,18:41:00,Friday,4.9,50,91,9,251,Test 24 - hunting ghosts w max
+154,2020-09-29,18:42:00,Tuesday,2.5,63,80,8,169,Test 23 - po box unboxing
+155,2020-09-24,00:30:00,Thursday,3.1,49,65,33,218,Test 22 - Among us w/ Gus Johnson and friends
+156,2020-09-22,17:33:00,Tuesday,10.2,135,521,212,"1,484","Test 21 - Among Us w/ Sabrina, Gus johnson, and friends"
+157,2020-09-20,19:18:00,Sunday,4.3,155,562,74,808,Test 20 - meet my waifu
+158,2020-09-18,19:24:00,Friday,5.3,92,104,24,334,Test 19 - finding my perfect WAIFU
+159,2020-09-16,18:28:00,Wednesday,7.9,224,630,287,"1,650",Test 18 - fall guys w Gus johnson
+160,2020-09-13,20:00:00,Sunday,2.6,44,55,4,106,test 17
+161,2020-09-06,20:08:00,Sunday,5.4,41,51,4,161,test 16 | california on fire
+162,2020-09-02,22:36:00,Wednesday,4.0,46,59,7,188,test 15 | test games
+163,2020-08-31,19:21:00,Monday,5.5,55,86,8,254,test 14 | Unboxing PC viewers bought
+164,2020-08-30,22:39:00,Sunday,2.8,50,57,8,91,test 13 | after hours mini stream
+165,2020-08-29,18:05:00,Saturday,4.3,62,75,28,156,test 12 | PC down the street
+166,2020-08-26,19:16:00,Wednesday,3.0,59,88,26,176,test 11 | New PC Problems
+167,2020-08-24,20:35:00,Monday,4.3,52,67,46,310,test 10 | accesories
+168,2020-08-21,20:07:00,Friday,3.1,290,686,56,"1,376",test 9 | PC Update
+169,2020-08-19,20:57:00,Wednesday,3.8,59,89,96,274,test 8 | We're AFFILIATED
+170,2020-08-17,20:45:00,Monday,3.1,189,521,152,858,test 7 | our last day!
+171,2020-08-17,05:08:00,Monday,0.3,10,14,1,0,test 6.1 | 5 minute stream
+172,2020-08-16,23:01:00,Sunday,1.4,41,54,9,50,test 5 | buying $1600 PC
+173,2020-08-16,00:00:00,Sunday,1.4,62,78,21,166,test 4.1 | short test
+174,2020-08-14,20:47:00,Friday,5.0,156,"1,133",233,928,test 4
+175,2020-08-13,20:45:00,Thursday,4.7,35,59,59,224,test 3
+176,2020-08-12,22:56:00,Wednesday,4.0,5,6,4,5,test
+177,2020-08-11,08:01:00,Tuesday,2.2,6,6,2,0,testing stuff

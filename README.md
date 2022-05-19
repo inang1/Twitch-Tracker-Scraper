@@ -11,7 +11,7 @@ Example:
   # Create an instance of the Twitch Exporter then run main()
   # Be sure to keep the "r" in front of the 'ExportPath' to ensure Python reads the path correctly
 
-  TwitchExporter = TwitchTrackerExport('StreamerID', r'ExportPath')
+  TwitchExporter = TwitchTrackerExport('StreamerID', r'ExportPath\CSVname.csv')
   df = TwitchExporter.main()
   print(df)
 ```

@@ -2,9 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 
 import pandas as pd
@@ -13,8 +10,11 @@ import datetime as dt
 class TwitchTrackerExport:
 
     def __init__(self, StreamerID, ExportPath):
+        # Initialize variables
         self.ExportPath = str(ExportPath)
         self.StreamerID = StreamerID
+
+        # Initialize lists to store data
         self.datetimes = []
         self.durations = []
         self.avgCCV = []
@@ -24,18 +24,20 @@ class TwitchTrackerExport:
         self.titles = []
 
         # Load page
-        self.url = 'https://twitchtracker.com/' + str(StreamerID) + '/streams'
+        self.url = 'https://twitchtracker.com/' + str(self.StreamerID) + '/streams'
         options = Options()
-        options.headless = False
+        # Change options.headless = False to monitor the scraping as it happens
+        options.headless = True
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.driver.maximize_window()
+        # Opens the page
         self.driver.get(self.url)
 
-        # Get number of pages to iterate through
+        # Get number of pages to iterate through via XPATH
         links = self.driver.find_elements(By.XPATH, "//ul[@class='pagination']/li/a")
         self.numPages = int(links[-1].text)-1
 
-        # Sets CurrentPage to 1
+        # Sets currentPage to 1
         self.currentPage = 1
 
     def nextPage(self):
@@ -43,12 +45,14 @@ class TwitchTrackerExport:
         next = str(self.currentPage + 1)
         nextXPATH = "//ul[@class='pagination']/li/a[text() =" + next + "]"
 
+        # Get link to next page
         element = self.driver.find_element(By.XPATH, nextXPATH)
 
         # Scrolls to the bottom of the page so button is in view then clicks
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         element.click()
 
+        # Update current page number
         self.currentPage += 1
 
     def scrapeData(self):
@@ -60,25 +64,25 @@ class TwitchTrackerExport:
         # Then appends the data to the corresponding list
         for _ in range(1, numStreams):
             datetimexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+ str(_) + "]/td[1]/a/span"
-            self.datetimes.append(self.driver.find_element(by = By.XPATH, value = datetimexpath).text)
+            self.datetimes.append(self.driver.find_element(By.XPATH, datetimexpath).text)
 
             durationxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) +"]/td[2]/span"
-            self.durations.append(self.driver.find_element(by = By.XPATH, value = durationxpath).text)
+            self.durations.append(self.driver.find_element(By.XPATH, durationxpath).text)
 
             avgCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[3]/span"
-            self.avgCCV.append(self.driver.find_element(by = By.XPATH, value = avgCCVxpath).text)
+            self.avgCCV.append(self.driver.find_element(By.XPATH, avgCCVxpath).text)
 
             maxCCVxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[4]/span"
-            self.maxCCV.append(self.driver.find_element(by = By.XPATH, value = maxCCVxpath).text)
+            self.maxCCV.append(self.driver.find_element(By.XPATH, maxCCVxpath).text)
 
             followersxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_) + "]/td[5]/span"
-            self.followers.append(self.driver.find_element(by = By.XPATH, value = followersxpath).text)
+            self.followers.append(self.driver.find_element(By.XPATH, followersxpath).text)
 
             viewsxpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr[" + str(_)+ "]/td[6]/span"
-            self.views.append(self.driver.find_element(by = By.XPATH, value = viewsxpath).text)
+            self.views.append(self.driver.find_element(By.XPATH, viewsxpath).text)
 
             titlexpath = "/html/body/div[2]/div[4]/div[5]/div[2]/table/tbody/tr["+str(_)+"]/td[7]"
-            self.titles.append(self.driver.find_element(by = By.XPATH, value = titlexpath).text)
+            self.titles.append(self.driver.find_element(By.XPATH, titlexpath).text)
 
     def combineData(self):
         # Remove hrs text from durations
@@ -91,12 +95,11 @@ class TwitchTrackerExport:
         # Convert DateTime column to datetime object and parse
         df['DateTime'] = pd.to_datetime(df['DateTime'])
         df['Date'] = df['DateTime'].dt.strftime('%m/%d/%Y')
-        df['Time'] = df['DateTime'].dt.strftime('%H:%M:%S')
+        df['Time'] = df['DateTime'].dt.strftime('%H:%M')
 
         # Convert Date and Time columns to dt objects
         df['Date'] = pd.to_datetime(df['Date'])
         df['Time'] = pd.to_datetime(df['Time'])
-        df['Time'] = df['Time'].dt.time
 
         # Add Day of Week column
         df['Day'] = df['Date'].dt.strftime('%A')
@@ -104,11 +107,14 @@ class TwitchTrackerExport:
         # Drop original DateTime column from the dataframe
         df = df.drop('DateTime', axis = 1)
 
-        # Fill in blanks with 0s
-        df.replace("", 0)
-
         # Reorder columns
         df = df[['Date', 'Time', 'Day', "Duration (hrs)", 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title']]
+
+        # Remove date from Time column
+        df['Time'] = df['Time'].dt.time
+
+        # Fill in blanks with 0s, this is to avoid NaN entries
+        df = df.replace("", 0)
 
         # Export df to csv
         df.to_csv(self.ExportPath)
@@ -131,6 +137,6 @@ class TwitchTrackerExport:
         df = self.combineData()
         return(df)
 
-TwitchExporter = TwitchTrackerExport('iankung', r"C:\Users\Isabella\Documents\Projects\Twitch Tracker Scraper\TwitchTrackerExport.csv")
+TwitchExporter = TwitchTrackerExport('StreamerID', r"ExportPath\TwitchTrackerExport.csv")
 df = TwitchExporter.main()
 print(df)

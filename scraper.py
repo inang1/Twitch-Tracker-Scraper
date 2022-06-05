@@ -10,9 +10,13 @@ import datetime as dt
 class TwitchTrackerExport:
 
     def __init__(self, StreamerID, ExportPath):
+
         # Initialize variables
-        self.ExportPath = str(ExportPath)
+        self.ExportPath = ExportPath
         self.StreamerID = StreamerID
+
+        # Sets currentPage to 1
+        self.currentPage = 1
 
         # Initialize lists to store data
         self.datetimes = []
@@ -23,13 +27,19 @@ class TwitchTrackerExport:
         self.views = []
         self.titles = []
 
-        # Load page
+        # Generate URL
         self.url = 'https://twitchtracker.com/' + str(self.StreamerID) + '/streams'
         options = Options()
+
         # Change options.headless = False to monitor the scraping as it happens
         options.headless = True
+
+        # Load browser
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+        # Sets the window to full screen
         self.driver.maximize_window()
+
         # Opens the page
         self.driver.get(self.url)
 
@@ -37,20 +47,17 @@ class TwitchTrackerExport:
         links = self.driver.find_elements(By.XPATH, "//ul[@class='pagination']/li/a")
         self.numPages = int(links[-1].text)-1
 
-        # Sets currentPage to 1
-        self.currentPage = 1
-
     def nextPage(self):
-        # Find all pagination links
+        # Find the next pagination link
         next = str(self.currentPage + 1)
         nextXPATH = "//ul[@class='pagination']/li/a[text() =" + next + "]"
 
         # Get link to next page
-        element = self.driver.find_element(By.XPATH, nextXPATH)
+        nextPage = self.driver.find_element(By.XPATH, nextXPATH)
 
         # Scrolls to the bottom of the page so button is in view then clicks
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        element.click()
+        nextPage.click()
 
         # Update current page number
         self.currentPage += 1
@@ -113,11 +120,12 @@ class TwitchTrackerExport:
         # Remove date from Time column
         df['Time'] = df['Time'].dt.time
 
-        # Fill in blanks with 0s, this is to avoid NaN entries
+        # Fill in blanks with 0s to avoid NaN entries
         df = df.replace("", 0)
 
         # Export df to csv
         df.to_csv(self.ExportPath)
+
         return(df)
 
     def main(self):
@@ -137,6 +145,7 @@ class TwitchTrackerExport:
         df = self.combineData()
         return(df)
 
-TwitchExporter = TwitchTrackerExport('StreamerID', r"ExportPath\TwitchTrackerExport.csv")
-df = TwitchExporter.main()
-print(df)
+if __name__ == "__main__":
+    TwitchExporter = TwitchTrackerExport('StreamerID', r"ExportPath\csvName.csv")
+    df = TwitchExporter.main()
+    print(df)

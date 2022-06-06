@@ -7,7 +7,7 @@ Requires Selenium and pandas to be installed.
 
 ## How to Run:
 
-```
+```Python
   # Edit the following snippet of code at the bottom to have your desired streamer and export path
   # Be sure to keep the "r" in front of the 'ExportPath' to ensure Python reads the path correctly
 
@@ -19,6 +19,8 @@ To run, download the code, navigate to the directory within the command line, th
 ```
 python scraper.py
 ```
+## Known Issues
+- Scraper won't grab Views despite the fact that I copied and pasted the same code that works for everything else. I have no idea what's wrong with it.
 
 ## Things to Do
 - Add Games column to the export

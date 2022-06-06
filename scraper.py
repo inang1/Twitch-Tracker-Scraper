@@ -150,6 +150,6 @@ class TwitchTrackerExport:
         return(df)
 
 if __name__ == "__main__":
-    TwitchExporter = TwitchTrackerExport('iankung', r"C:\Users\Isabella\Documents\Projects\Twitch Tracker Scraper\TwitchTrackerExport.csv")
+    TwitchExporter = TwitchTrackerExport('StreamerID', r"ExportPath\csvName.csv")
     df = TwitchExporter.main()
     print(df)

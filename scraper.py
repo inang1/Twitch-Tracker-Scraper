@@ -114,6 +114,10 @@ class TwitchTrackerExport:
         # Drop original DateTime column from the dataframe
         df = df.drop('DateTime', axis = 1)
 
+        # Remove commas in numeric columns of the dataframe
+        for col in ['avgCCV', 'maxCCV', 'Followers', 'Views']:
+            df[col] = df[col].str.replace(",","")
+
         # Reorder columns
         df = df[['Date', 'Time', 'Day', "Duration (hrs)", 'avgCCV', 'maxCCV', 'Followers', 'Views', 'Title']]
 
@@ -146,6 +150,6 @@ class TwitchTrackerExport:
         return(df)
 
 if __name__ == "__main__":
-    TwitchExporter = TwitchTrackerExport('StreamerID', r"ExportPath\csvName.csv")
+    TwitchExporter = TwitchTrackerExport('iankung', r"C:\Users\Isabella\Documents\Projects\Twitch Tracker Scraper\TwitchTrackerExport.csv")
     df = TwitchExporter.main()
     print(df)

@@ -19,8 +19,6 @@ To run, download the code, navigate to the directory within the command line, th
 ```
 python scraper.py
 ```
-## Known Issues
-- Scraper won't grab Views despite the fact that I copied and pasted the same code that works for everything else. I have no idea what's wrong with it.
 
 ## Things to Do
 - Add Games column to the export

@@ -22,3 +22,4 @@ python scraper.py
 
 ## Things to Do
 - Add Games column to the export
+- Change code to match Python style guidelines
